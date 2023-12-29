@@ -1,0 +1,13 @@
+<!-- myapp/templates/myapp/country_language_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Country Language List{% endblock %}
+
+{% block content %}
+  <h2>Country Language List</h2>
+  <ul>
+    {% for country_language in country_languages %}
+      <li>{{ country_language.language }} - {{ country_language.country_code.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
