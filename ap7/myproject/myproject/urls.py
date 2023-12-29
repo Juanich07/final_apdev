@@ -24,6 +24,7 @@ urlpatterns = [
     path('myapp/', include('myapp.urls')),
     path('', include('myapp.urls')),
     path('', home, name='home'),
+    path('country-languages/', include('myapp.urls')),
     
 ]
 # # myproject/urls.py

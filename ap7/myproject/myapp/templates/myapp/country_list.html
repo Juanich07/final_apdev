@@ -9,17 +9,32 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">Flag</th>
         <th scope="col">Name</th>
         <th scope="col">Population</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       {% for country in countries %}
         <tr>
+          <td>
+            {% if country.flag %}
+              <img src="{{ country.flag.url }}" alt="{{ country.name }} Flag" style="max-width: 50px; max-height: 50px;">
+            {% else %}
+              No Flag
+            {% endif %}
+          </td>
           <td>{{ country.name }}</td>
           <td>{{ country.population }}</td>
+          <td>
+            <a href="{% url 'country_update' country.pk %}">Edit</a>
+            <a href="{% url 'country_delete' country.pk %}">Delete</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+
+  <a href="{% url 'country_create' %}">Add Country</a>
 {% endblock %}

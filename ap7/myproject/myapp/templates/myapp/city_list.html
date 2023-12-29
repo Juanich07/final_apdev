@@ -1,4 +1,5 @@
 <!-- myapp/templates/myapp/city_list.html -->
+<!-- myapp/templates/myapp/city_list.html -->
 {% extends 'base.html' %}
 {% block title %}City List{% endblock %}
 {% block content %}
@@ -11,6 +12,7 @@
         <th scope="col">Country Code</th>
         <th scope="col">District</th>
         <th scope="col">Population</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -20,13 +22,15 @@
           <td>{{ city.country_code }}</td>
           <td>{{ city.district }}</td>
           <td>{{ city.population }}</td>
+          <td>
+            <a href="{% url 'city_update' city.pk %}">Edit</a>
+            <a href="{% url 'city_delete' city.pk %}">Delete</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
+  <a href="{% url 'city_create' %}">Add City</a>
+
 {% endblock %}
-
-
-
-  

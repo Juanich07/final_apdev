@@ -9,3 +9,13 @@
     <button type="submit">Confirm</button>
   </form>
 {% endblock %}
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete {{ city.name }}?</p>
+  <form method="post" action="{% url 'city_delete' pk=city.pk %}">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+{% endblock %}

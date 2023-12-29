@@ -1,4 +1,3 @@
-<!-- myapp/templates/myapp/country_language_list.html -->
 {% extends 'base.html' %}
 
 {% block title %}Country Language List{% endblock %}
@@ -10,6 +9,7 @@
       <tr>
         <th scope="col">Language</th>
         <th scope="col">Percentage</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,8 +17,14 @@
         <tr>
           <td>{{ language.language }}</td>
           <td>{{ language.percentage }}%</td>
+          <td>
+            <a href="{% url 'country_language_update' language.pk %}">Edit</a>
+            <a href="{% url 'country_language_delete' language.pk %}">Delete</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+
+  <a href="{% url 'country_language_create' %}">Add Country Language</a>
 {% endblock %}
