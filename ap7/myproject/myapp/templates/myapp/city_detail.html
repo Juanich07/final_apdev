@@ -1,0 +1,9 @@
+<!-- myapp/templates/myapp/city_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ city.name }} Details</h2>
+  <p>Population: {{ city.population }}</p>
+  <p>District: {{ city.district }}</p>
+  <!-- Add other fields as needed -->
+{% endblock %}

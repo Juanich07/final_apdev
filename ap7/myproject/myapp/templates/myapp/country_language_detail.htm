@@ -1,0 +1,9 @@
+<!-- myapp/templates/myapp/country_language_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ language.language }} Details</h2>
+  <p>Percentage: {{ language.percentage }}%</p>
+  <p>Official: {% if language.is_official %}Yes{% else %}No{% endif %}</p>
+  <!-- Add other fields as needed -->
+{% endblock %}

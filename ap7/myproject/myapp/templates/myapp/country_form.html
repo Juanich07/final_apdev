@@ -1,0 +1,11 @@
+<!-- myapp/templates/myapp/country_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create/Edit Country</h2>
+  <form method="post" action="{% if country.pk %}{% url 'country_update' pk=country.pk %}{% else %}{% url 'country_create' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

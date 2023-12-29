@@ -1,0 +1,11 @@
+<!-- myapp/templates/myapp/country_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete {{ country.name }}?</p>
+  <form method="post" action="{% url 'country_delete' pk=country.pk %}">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+{% endblock %}

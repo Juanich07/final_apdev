@@ -1,0 +1,11 @@
+<!-- myapp/templates/myapp/city_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create/Edit City</h2>
+  <form method="post" action="{% if city.pk %}{% url 'city_update' pk=city.pk %}{% else %}{% url 'city_create' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

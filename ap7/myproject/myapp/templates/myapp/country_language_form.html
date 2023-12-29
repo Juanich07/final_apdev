@@ -1,0 +1,11 @@
+<!-- myapp/templates/myapp/country_language_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create/Edit Country Language</h2>
+  <form method="post" action="{% if language.pk %}{% url 'country_language_update' pk=language.pk %}{% else %}{% url 'country_language_create' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

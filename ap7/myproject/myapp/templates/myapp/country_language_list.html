@@ -1,0 +1,24 @@
+<!-- myapp/templates/myapp/country_language_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Country Language List{% endblock %}
+
+{% block content %}
+  <h2>Country Language List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Language</th>
+        <th scope="col">Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for language in country_languages %}
+        <tr>
+          <td>{{ language.language }}</td>
+          <td>{{ language.percentage }}%</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+<!-- myapp/templates/myapp/country_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ country.name }} Details</h2>
+  <p>Population: {{ country.population }}</p>
+  <p>Continent: {{ country.continent }}</p>
+  <!-- Add other fields as needed -->
+{% endblock %}
