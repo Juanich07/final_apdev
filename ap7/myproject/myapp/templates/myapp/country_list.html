@@ -20,9 +20,7 @@
         <tr>
           <td>
             {% if country.flag %}
-              <img src="{{ country.flag.url }}" alt="{{ country.name }} Flag" style="max-width: 50px; max-height: 50px;">
-            {% else %}
-              No Flag
+              <img src="{{ country.flag.url }}" alt="{{ country.name }} Flag" height="30" width="40">
             {% endif %}
           </td>
           <td>{{ country.name }}</td>
@@ -37,4 +35,22 @@
   </table>
 
   <a href="{% url 'country_create' %}">Add Country</a>
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if countries.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ countries.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+        Page {{ countries.number }} of {{ countries.paginator.num_pages }}.
+      </span>
+
+      {% if countries.has_next %}
+        <a href="?page={{ countries.next_page_number }}">next</a>
+        <a href="?page={{ countries.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
 {% endblock %}

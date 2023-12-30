@@ -1,11 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import City, Country, CountryLanguage
 from .forms import CityForm, CountryForm, CountryLanguageForm
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # City views (previously provided)
 
 def country_list(request):
     countries = Country.objects.all()
+    paginator = Paginator(countries, 3)  # Show 10 countries per page
+    page = request.GET.get('page')
+
+    try:
+        countries = paginator.page(page)
+    except PageNotAnInteger:
+        countries = paginator.page(1)
+    except EmptyPage:
+        countries = paginator.page(paginator.num_pages)
     return render(request, 'myapp/country_list.html', {'countries': countries})
 
 def country_detail(request, pk):
@@ -43,6 +52,19 @@ def country_delete(request, pk):
 # Similar views for CountryLanguage (list, detail, create, update, delete)
 def country_language_list(request):
     country_languages = CountryLanguage.objects.all()
+    # country_languages = CountryLanguage.objects.all()
+
+    # Pagination
+    paginator = Paginator(country_languages, 3)  # Show 10 languages per page
+    page = request.GET.get('page')
+
+    try:
+        country_languages = paginator.page(page)
+    except PageNotAnInteger:
+        country_languages = paginator.page(1)
+    except EmptyPage:
+        country_languages = paginator.page(paginator.num_pages)
+
     return render(request, 'myapp/country_language_list.html', {'country_languages': country_languages})
 
 def country_language_detail(request, pk):
@@ -79,6 +101,16 @@ def country_language_delete(request, pk):
 
 def city_list(request):
     cities = City.objects.all()
+    # Pagination
+    paginator = Paginator(cities, 3)  # Show 10 cities per page
+    page = request.GET.get('page')
+
+    try:
+        cities = paginator.page(page)
+    except PageNotAnInteger:
+        cities = paginator.page(1)
+    except EmptyPage:
+        cities = paginator.page(paginator.num_pages)
     return render(request, 'myapp/city_list.html', {'cities': cities})
 
 def city_detail(request, pk):
@@ -115,3 +147,4 @@ def city_delete(request, pk):
 
 def home(request):
     return render(request, 'myapp/home.html')
+

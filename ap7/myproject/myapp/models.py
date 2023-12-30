@@ -87,6 +87,7 @@ class Country(BaseModel):
     head_of_state = models.CharField(max_length=100)
     capital = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True)
     code2 = models.CharField(max_length=2)
+    flag = models.ImageField(upload_to='country_flags/', null=True, blank=True)
 
     def __str__(self):
         return self.name

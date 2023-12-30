@@ -27,4 +27,22 @@
   </table>
 
   <a href="{% url 'country_language_create' %}">Add Country Language</a>
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if country_languages.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ country_languages.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+        Page {{ country_languages.number }} of {{ country_languages.paginator.num_pages }}.
+      </span>
+
+      {% if country_languages.has_next %}
+        <a href="?page={{ country_languages.next_page_number }}">next</a>
+        <a href="?page={{ country_languages.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
 {% endblock %}

@@ -1,0 +1,32 @@
+/* Add this to your CSS file or within a style tag in your HTML */
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.step-links a, .current {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 2px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.step-links a:hover {
+    background-color: #f5f5f5;
+}
+
+.current {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 2px;
+    text-decoration: none;
+    border: 1px solid #333;
+    color: #fff;
+    background-color: #333;
+    border-radius: 4px;
+}

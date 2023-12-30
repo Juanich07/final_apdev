@@ -27,7 +27,8 @@ from django.urls import path
 from .views import city_list, city_detail, city_create, city_update, city_delete
 from .views import country_list, country_detail, country_create, country_update, country_delete
 from .views import country_language_list, country_language_detail, country_language_create, country_language_update, country_language_delete
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('cities/', city_list, name='city_list'),
     path('cities/<int:pk>/', city_detail, name='city_detail'),
@@ -48,3 +49,5 @@ urlpatterns = [
     path('country-languages/<int:pk>/delete/', country_language_delete, name='country_language_delete'),
     
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
