@@ -139,7 +139,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # ]
 # settings.py
 
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'yourapp/static'),
+# ]
+# import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Static files (CSS, JavaScript, images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'yourapp/static'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
