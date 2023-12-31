@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Region Form{% endblock %}
+{% block content %}
+  <h2>Create/Edit Region</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'region_list' %}">Back to List</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Region Detail{% endblock %}
+{% block content %}
+  <h2>{{ region.name }}</h2>
+  <p>Continent: {{ region.continent }}</p>
+  <a href="{% url 'region_update' region.pk %}">Edit</a>
+  <a href="{% url 'region_delete' region.pk %}">Delete</a>
+  <a href="{% url 'region_list' %}">Back to List</a>
+{% endblock %}
